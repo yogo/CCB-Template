@@ -1,0 +1,93 @@
+/*  
+Theme Name: HHMI Theme
+Description: Hughes theme for Wordpress.
+Version: 1.0
+Author: Yogo
+Author URI: http://yogo.msu.montana.edu
+
+*/
+
+
+.alignright {
+  float: right;
+}
+.alignleft {
+  float: left;
+}
+.widgetelement li {
+  padding: 2px;
+}
+.widgetelement #wp-calendar {
+  width: 175px;
+}
+input[type=submit] {
+	margin-top:5px;
+}
+div.entry {
+	margin-top: 5px;
+	margin-bottom:15px;
+}
+.post {
+	border-bottom:2px dotted #ccc;
+	padding-bottom: 10px;
+	margin-bottom: 10px;
+}
+.post .more-link {
+	font-weight: bold;
+}
+small {
+	color:#999999; 
+}
+textarea#comment {
+	width: 100%;
+}
+li#search {
+	margin-top: 15px;
+}
+li.page_item {
+}
+
+/* the outermost list item; contains whole list */
+.pagenav {
+} 
+
+/* any Page item */
+.page_item {
+  list-style-type: none;
+} 
+
+/* the current Page */
+.current_page_item {
+} 
+
+/* parent of the current Page */
+.current_page_parent {
+}
+
+ /* any ancestor of the current Page */
+.current_page_ancestor {
+} 
+
+.links  li ul,
+.links .current_page_item ul ul,
+.links .current_page_ancestor ul ul,
+.links .current_page_ancestor .current_page_item ul ul,
+.links .current_page_ancestor .current_page_ancestor ul ul {
+  display: block;
+  margin-left: 10px;
+}
+
+.links .current_page_item ul,
+.links .current_page_ancestor ul,
+.links .current_page_ancestor .current_page_item ul,
+.links .current_page_ancestor .current_page_ancestor ul,
+.links .current_page_ancestor .current_page_ancestor .current_page_item ul,
+.links .current_page_ancestor .current_page_ancestor .current_page_ancestor ul {
+  display: block;
+  margin-left: 10px;
+}
+.links h2 a {
+  color: #003F7F;
+  font-weight: bold;
+  font-size: 13px;
+}
