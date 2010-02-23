@@ -1,1 +1,3 @@
 == MSU Wordpress Template
+
+This is a dynamic template for Wordpress using the new MSU Template.
