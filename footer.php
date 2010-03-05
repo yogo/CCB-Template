@@ -23,6 +23,6 @@
         <a class="linkspacing" href="http://www.montana.edu/siteindex/">Site Index</a>
         </div><!-- END FOOTER -->
       </div><!-- End Containing Table --> 
-
+<? wp_footer() ?>
 </body>
 </html>

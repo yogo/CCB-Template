@@ -23,17 +23,19 @@
 	<h3 id="comments"><?php comments_number('No Responses', 'One Response', '% Responses' );?> to &#8220;<?php the_title(); ?>&#8221;</h3>
 
 	<ol class="commentlist">
-
 	<?php foreach ($comments as $comment) : ?>
 
 		<li <?php echo $oddcomment; ?>id="comment-<?php comment_ID() ?>">
+      <?php 
+         echo get_avatar( $id_or_email, $size = '36'); 
+      ?>
 			<cite><?php comment_author_link() ?></cite> Says:
 			<?php if ($comment->comment_approved == '0') : ?>
 			<em>Your comment is awaiting moderation.</em>
 			<?php endif; ?>
 			<br />
 
-			<small class="commentmetadata"><?php comment_date('F jS, Y') ?> at <?php comment_time() ?> <a href="#comment-<?php comment_ID() ?>" title="">Link</a><?php edit_comment_link('edit','&nbsp;&nbsp;',''); ?></small>
+			<small class="commentmetadata"><?php comment_date('F jS, Y') ?> at <?php comment_time() ?> <a href="#comment-<?php comment_ID() ?>" title="">Link</a><?php edit_comment_link('edit','&nbsp;&nbsp;',''); ?> - <? comment_reply_link() ?></small>
 
 			<?php comment_text() ?>
 

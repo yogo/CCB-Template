@@ -19,7 +19,7 @@ if ( function_exists('register_sidebar') ) {
 
 
 function msu_template_setup_admin() {
-          add_theme_page('MSU Template Setup', 'MSU Template', 8, __FILE__, 'msu_template_admin');
+  add_menu_page('MSU Template Setup', 'MSU Template', 8, __FILE__, 'msu_template_admin','http://montana.edu/favicon.ico');
 }
 
 function msu_template_admin() {
@@ -47,7 +47,7 @@ function msu_template_admin() {
 	</tr>
 	
 	<tr valign="top">
-		<th scope="row"><?php _e('Top Image:', 'msu-template') ?></th>
+		<th scope="row"><?php _e('Header Image:', 'msu-template') ?></th>
 		<td>
 			<select name='top-image'>
         <option value='' <? echo (get_option('top-image')=="") ? "selected" : "" ?>>Default</option>
@@ -61,7 +61,8 @@ function msu_template_admin() {
   <tr valign="top">
 		<th scope="row"><?php _e('Page Image:', 'msu-template') ?></th>
 		<td>
-			<input type="text" class="text" style="width: 400px;" name="page-image" value="<?php echo htmlspecialchars(get_option('page-image')) ?>" />
+			<input type="text" class="text" style="width: 400px;" name="page-image" value="<?php echo htmlspecialchars(get_option('page-image')) ?>" /><br />
+        <small>If left blank, no image will be shown.</small>
 		</td>
 	</tr>
 	
@@ -183,117 +184,7 @@ function msu_template_admin() {
 		</td>
 	</tr>
 	
-	
-<!--  
-  <tr valign="top">
-		<th scope="row"><?php _e('Header image:', 'elegant-grunge') ?></th>
-		<td>
-			<input type="text" class="text" style="width: 400px;" name="header_image" value="<?php echo htmlspecialchars(get_option('header_image')) ?>" /><br/>
-			 <small><?php _e('If specified, the image (typically a transparent PNG) at the above URL will be used for the header.', 'elegant-grunge') ?></small>
-		</td>
-	</tr>
-	
-	<tr valign="top">
-		<th scope="row"><?php _e('RSS subscription:', 'elegant-grunge') ?></th>
-		<td>
-			<input type="checkbox" name="show_rss" <?php echo (get_option('show_rss') ? "checked" : ""); ?> />
-			 <?php _e('Display RSS subscription link', 'elegant-grunge') ?>
-		</td>
-	</tr>
-	
-	<tr valign="top">
-		<th scope="row"><?php _e('Post info:', 'elegant-grunge') ?></th>
-		<td>
-			<input type="checkbox" name="show_author" <?php echo (get_option('show_author') ? "checked" : ""); ?> />
-			 <?php _e('Display post author', 'elegant-grunge') ?>
-		</td>
-	</tr>
-	
-	<tr valign="top">
-		<th scope="row"><?php _e('Page setup:', 'elegant-grunge') ?></th>
-		<td>
-			<select name="page_setup">
-				<option value="right-sidebar" <?php echo (get_option('page_setup')=='right-sidebar' ? 'selected' : '') ?>>Right sidebar</option>
-				<option value="double-right-sidebar" <?php echo (get_option('page_setup')=='double-right-sidebar' ? 'selected' : '') ?>>Double Right sidebar</option>
-				<option value="no-sidebar" <?php echo (get_option('page_setup')=='no-sidebar' ? 'selected' : '') ?>>No sidebar</option>
-			</select>
-		</td>
-	</tr>
-	
-	<tr valign="top">
-		<th scope="row"><?php _e('Copyright message:', 'elegant-grunge') ?></th>
-		<td>
-			<input type="text" class="text" style="width: 300px;" name="copyright" value="<?php echo htmlspecialchars(get_option('copyright')) ?>" />
-		</td>
-	</tr>
-	
-	<tr valign="top">
-		<th scope="row"><?php _e('Image frames:', 'elegant-grunge') ?></th>
-		<td>
-			<input type="checkbox" name="frame_all_images" <?php echo (get_option('frame_all_images') ? "checked" : ""); ?> />
-			 <?php _e('Apply frame to all images', 'elegant-grunge') ?><br/>
-			<small><?php printf(__('If enabled, all images larger than %1$d x %2$d
-				will have a frame with drop shadow applied. Otherwise, only images and other elements with a class
-				of \'frame\' will have this style applied.<br/>
-				This setting can be configured per-post and per-page, also.', 'elegant-grunge'), ELEGANT_GRUNGE_FRAME_MIN_WIDTH, ELEGANT_GRUNGE_FRAME_MIN_HEIGHT) ?></small>
-		</td>
-	</tr>
-	
-	<tr valign="top">
-		<th scope="row"><?php _e("Don't frame images with class:", 'elegant-grunge') ?></th>
-		<td>
-			<input type="text" class="text" style="width: 300px;" name="frame_class_skip" value="<?php echo htmlspecialchars(get_option('frame_class_skip')) ?>" />
-			<br/><small><?php _e('Separate multiple classes with commas \',\'', 'elegant-grunge') ?></small>
-		</td>
-	</tr>
-	
-	<tr valign="top">
-		<th scope="row"><?php _e('Extra header content:', 'elegant-grunge') ?></th>
-		<td>
-			<textarea style="width: 300px; height: 100px;" name="extra_header"><?php echo htmlspecialchars(get_option('extra_header')) ?></textarea><br/>
-			<small><?php _e('This can be used to add extra RSS feed links from your page, for example, such as a Twitter feed.', 'elegant-grunge') ?></small>
-		</td>
-	</tr>
-	
-	<tr valign="top">
-		<th scope="row"><?php _e('Photoblog thumbnails:', 'elegant-grunge') ?></th>
-		<td>
-			<p>
-			<input type="checkbox" name="create_photoblog_thumbnails" <?php echo (get_option('create_photoblog_thumbnails') ? "checked" : ""); ?> />
-			 <?php _e('Create scaled thumbnails', 'elegant-grunge') ?><br/>
-			<small><?php _e('If enabled, will generate thumbnail files. Otherwise, will use the original images, resulting in slower loading times.
-			Note that the first photoblog page load after this is enabled will be slow, while images are being created, so you should
-			<a href="/tag/photoblog" target="_blank">load this</a> yourself.', 'elegant-grunge') ?></small>
-			</p>
-			<p>
-			<?php _e('Thumbnail size:', 'elegant-grunge') ?><br/>
-			<input type="text" class="text" size="5" name="photoblog_thumb_width" value="<?php echo get_option('photoblog_thumb_width') ?>" /> x
-			<input type="text" class="text" size="5" name="photoblog_thumb_height" value="<?php echo get_option('photoblog_thumb_height') ?>" /><br />
-			<small><?php _e('Leave blank for flexible size', 'elegant-grunge') ?></small>
-		</td>
-	</tr>
-	
-	<tr valign="top">
-		<th scope="row"><?php _e('Photoblog display:', 'elegant-grunge') ?></th>
-		<td>
-			<p>
-			<?php _e('Number of thumbnails per page:', 'elegant-grunge') ?><br/>
-			<input type="text" class="text" size="5" name="photoblog_thumb_count" value="<?php echo get_option('photoblog_thumb_count') ?>" />
-			</p>
-			<p>
-			<input type="checkbox" name="photoblog_lightbox" <?php echo (get_option('photoblog_lightbox') ? "checked" : ""); ?> />
-			 <?php _e('Use lightbox mode', 'elegant-grunge') ?><br/>
-			<small><?php _e('Requires a lightbox plugin to be installed, such as <a href="http://www.stimuli.ca/lightbox/">Lightbox 2</a>.', 'elegant-grunge') ?></small>
-			</p>
-			<p>
-			<input type="checkbox" name="photoblog_frames" <?php echo (get_option('photoblog_frames') ? "checked" : ""); ?> />
-			 <?php _e('Draw frames around photoblog items', 'elegant-grunge') ?><br/>
-			</p>
-		</td>
-	</tr>
--->	
-	
-	</table>
+  </table>
 	
 	<input type="hidden" name="action" value="update" />
 	<input type="hidden" name="page_options" value="college-title,msu-tagline,address,city-state-zip,telephone,fax,email,location,dean-name,director-name,director-phone,director-email,top-image,page-image,information-text,page-tab-title,blog-tab-title" />
@@ -305,6 +196,56 @@ function msu_template_admin() {
 	</form>
 	</div>
 	<?php
+}
+
+function breadcrumbs() {
+  if(is_home() || is_404()) {
+    echo '&nbsp;';
+  }elseif(is_single()){
+    echo '<a href="'. get_bloginfo('url').'">'.get_bloginfo('name').'</a> &gt; ';
+    the_category(' - ');
+    echo ' &gt; '.get_the_title();
+  }elseif(is_category()){
+    echo '<a href="'. get_bloginfo('url').'">'.get_bloginfo('name').'</a> &gt; Category: ';
+    echo wp_title('');
+  }elseif( is_day() || is_month() || is_year() ){
+    echo '<a href="'. get_bloginfo('url').'">'.get_bloginfo('name').'</a> &gt; Archives: ';
+    echo wp_title('');
+  }elseif(is_search()){
+    echo '<a href="'. get_bloginfo('url').'">'.get_bloginfo('name').'</a> &gt; Search Results: '.htmlspecialchars($_GET['s']);
+  }else{
+    $FullUrl = 'http://'.$_SERVER['HTTP_HOST'].$_SERVER['REQUEST_URI']; $BaseUrl = get_bloginfo('url'); $SplitUrl = str_ireplace($BaseUrl,'', $FullUrl);  
+    $UrlArray=explode("/",$SplitUrl);
+    echo '<a href="'. get_bloginfo('url').'">'.get_bloginfo('name').'</a>';
+    while (list($j,$text) = each($UrlArray)) {
+      $dir='';
+        if ($j > 1) {
+          $i=1;
+          while ($i < $j) {
+            $dir .= '/' . $UrlArray[$i];
+            $text = $UrlArray[$i];
+            $i++;
+          }
+          if($j < count($UrlArray)-1) echo ' &gt; <a href="'.$PageUrl.$dir.'">' . ucwords(str_replace("-", " ", $text)) . '</a>';
+        }
+    }
+    echo the_title(" &gt; ");
+  }
+}
+
+function pageTitle() {
+       if (is_home()) { echo bloginfo('name');
+       } elseif (is_404()) {
+       echo '404 Not Found' . " - " . get_bloginfo('name');
+       } elseif (is_category()) {
+       echo 'Category:'; wp_title('') . " - " . get_bloginfo('name');
+       } elseif (is_search()) {
+       echo 'Search Results' . " - " . get_bloginfo('name');
+       } elseif ( is_day() || is_month() || is_year() ) {
+       echo 'Archives:'; wp_title('') . " - " . get_bloginfo('name');
+       } else {
+       echo wp_title('') . " - " . get_bloginfo('name');
+       }
 }
 
 add_action( 'admin_menu', 'msu_template_setup_admin' );

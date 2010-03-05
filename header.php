@@ -10,22 +10,24 @@
     <!--[if IE 6]><link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/ie6screen.css"  media="screen" /><![endif]-->
     <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/mobile.css" media="handheld, only screen and (max-device-width: 480px)" />
     <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/print.css" media="print" />   
+    <link rel="icon" type="image/icon" href="http://montana.edu/favicon.ico">
    	<script type="text/javascript" language="JavaScript1.2" src="http://www.montana.edu/msucommon/scriptsv2/tabs200.js"></script>
 
 <!-- END BRANDED CONTENT DO NOT EDIT -->     
 <!--                                 -->   
 
-<title>Montana State University - Page Title</title>
+<title><? pageTitle() ?></title>
 
 <!-- Add custom styles here -->
     <link rel="stylesheet" type="text/css" href="<? bloginfo('stylesheet_url')?>" media="screen">
 <!-- BEGIN BRANDED CONTENT DO NOT EDIT -->
+<? wp_head() ?>
 </head>
 
 <body><!-- LOADS NEWS CONTAINER -->
 <script type="text/javascript"> 
 var _gaq = _gaq || []; 
-_gaq.push(['_setAccount', 'UA-4471790-1']); 
+_gaq.push(['_setAccount', '<? echo (htmlspecialchars(get_option('analytics'))!='')?'UA-4471790-1':htmlspecialchars(get_option('analytics')) ?>'); 
 _gaq.push(['_trackPageview']); 
 (function() { 
 var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true; 
@@ -59,11 +61,11 @@ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
 
 <!-- BEGIN MAIN CONTENT --> 
 		<div id="maincontent">
-       	  <div id="crumbnav"><a href="">College (if appropriate)</a> &gt; <a href="">Department/Office</a> &gt; <a href="">Section</a> &gt; <a href="">Sub-section</a></div>
+       	  <div id="crumbnav"><? breadcrumbs() ?></div>
 <!--END BREADCRUMB NAVIGATION-->  		
         <div id="left">
           <div class="links">
-            <h2><a href='<?bloginfo('url') ?>'><? bloginfo('title') ?></a></h2>
+            <h2><? bloginfo('title') ?></h2>
             <? wp_page_menu(array('show_home' => true)) ?>                        
 <!--End Links--></div>
 <!--                                   -->   
@@ -100,9 +102,14 @@ E-mail: <a href="mailto:<?php echo htmlspecialchars(get_option('director-email')
 </div>
 
 <div id="rightpane">        
-<? get_sidebar() ?>
-<div id="welcomebanner"><img src="<? echo htmlspecialchars(get_option('page-image')) ?>" alt="Page Image" /></div>
-
+<? if(!is_search()){
+    get_sidebar();
+}
+?>
+<? if(htmlspecialchars(get_option('page-image'))!='') { ?>
+<div id="welcomebanner">
+  <img src="<? echo htmlspecialchars(get_option('page-image')) ?>" alt="<? bloginfo('name') ?>" title="<? bloginfo('name') ?>"  />
+</div>
+<? } ?>
 <!-- BEGIN Body Content -->
 <div id="content">
-
