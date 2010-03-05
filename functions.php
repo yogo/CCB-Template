@@ -101,25 +101,10 @@ function msu_template_admin() {
 		</td>
 	</tr>
 	
-	<tr valign="top">
-		<th scope="row"><?php _e('MSU Tagline:', 'msu-template') ?></th>
-		<td>
-			<input type="text" class="text" style="width: 200px;" name="msu-tagline" value="<?php echo htmlspecialchars(get_option('msu-tagline')) ?>" /><br />
-      <small>Default: Montana State University</small>
-		</td>
-	</tr>
-	
-	<tr valign="top">
+  <tr valign="top">
 		<th scope="row"><?php _e('Address:', 'msu-template') ?></th>
 		<td>
 			<input type="text" class="text" style="width: 200px;" name="address" value="<?php echo htmlspecialchars(get_option('address')) ?>" />
-		</td>
-	</tr>
-	
-	<tr valign="top">
-		<th scope="row"><?php _e('City, State ZIP:', 'msu-template') ?></th>
-		<td>
-			<input type="text" class="text" style="width: 200px;" name="city-state-zip" value="<?php echo htmlspecialchars(get_option('city-state-zip')) ?>" />
 		</td>
 	</tr>
 
@@ -187,7 +172,7 @@ function msu_template_admin() {
   </table>
 	
 	<input type="hidden" name="action" value="update" />
-	<input type="hidden" name="page_options" value="college-title,msu-tagline,address,city-state-zip,telephone,fax,email,location,dean-name,director-name,director-phone,director-email,top-image,page-image,information-text,page-tab-title,blog-tab-title" />
+	<input type="hidden" name="page_options" value="college-title,address,telephone,fax,email,location,dean-name,director-name,director-phone,director-email,top-image,page-image,information-text,page-tab-title,blog-tab-title" />
 	
 	<p class="submit">
 	<input type="submit" name="Submit" value="<?php _e('Save Changes', 'msu-template') ?>" />

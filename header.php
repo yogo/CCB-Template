@@ -79,23 +79,29 @@ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
 <!--                                -->
 <!--Begin Insert Contact Information-->
 <!--                                -->
-<h2><?php echo htmlspecialchars(get_option('college-title')) ?></h2>
-<p><?php echo htmlspecialchars(get_option('msu-tagline')) ?><br />
- <?php echo htmlspecialchars(get_option('address')) ?><br />
- <?php echo htmlspecialchars(get_option('city-state-zip')) ?></p>
-
-<p>Tel: <?php echo htmlspecialchars(get_option('telephone')) ?><br />
-Fax: <?php echo htmlspecialchars(get_option('fax')) ?><br />
-E-mail: <a href="mailto:<?php echo htmlspecialchars(get_option('email')) ?>"><?php echo htmlspecialchars(get_option('email')) ?></a><br />
-Location: <?php echo htmlspecialchars(get_option('location')) ?></p>
-                
+<h2><?php _e(htmlspecialchars(get_option('college-title')),'msu-template') ?></h2>
+Montana State University<br />
+<? if(htmlspecialchars(get_option('address'))!=""){ ?>
+<?php _e(htmlspecialchars(get_option('address')),'msu-template') ?><br />
+<? } ?>
+Bozeman, Montana 59715<br />
+<br />
+Tel: <?php _e(htmlspecialchars(get_option('telephone')),'msu-template') ?><br />
+Fax: <?php _e(htmlspecialchars(get_option('fax')),'msu-template') ?><br />
+E-mail: <a href="mailto:<?php _e(htmlspecialchars(get_option('email')),'msu-template') ?>"><?php _e(htmlspecialchars(get_option('email')),'msu-template') ?></a><br />
+Location: <?php _e(htmlspecialchars(get_option('location')),'msu-template') ?><br />
+<? if(htmlspecialchars(get_option('dean-name'))!=""){ ?>
+<br />
 <h2>Dean</h2>
-<p><?php echo htmlspecialchars(get_option('dean-name')) ?></p>
-<!-- Add any additional contact information-->
+<?php _e(htmlspecialchars(get_option('dean-name')),'msu-template') ?><br />
+<? } ?>
+<? if(htmlspecialchars(get_option('director-name'))!=""){ ?>
+<br />
 <h2>Director</h2>
-<?php echo htmlspecialchars(get_option('director-name')) ?><br />
-Phone: <?php echo htmlspecialchars(get_option('director-phone')) ?><br />
-E-mail: <a href="mailto:<?php echo htmlspecialchars(get_option('director-email')) ?>"><?php echo htmlspecialchars(get_option('director-email')) ?></a><br />
+<?php _e(htmlspecialchars(get_option('director-name')),'msu-template') ?><br />
+Phone: <?php _e(htmlspecialchars(get_option('director-phone')),'msu-template') ?><br />
+E-mail: <a href="mailto:<?php _e(htmlspecialchars(get_option('director-email')),'msu-template') ?>"><?php _e(htmlspecialchars(get_option('director-email')),'msu-template') ?></a><br />
+<? } ?>
 <!--                                   -->
 <!-- BEGIN BRANDED CONTENT DO NOT EDIT -->
 </div>
