@@ -6,22 +6,17 @@
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/screen.css"  media="screen" />
-    <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/tabs200.css" media="screen" />
-    <!--[if IE 6]><link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/ie6screen.css"  media="screen" /><![endif]-->
-    <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/mobile.css" media="handheld, only screen and (max-device-width: 480px)" />
-    <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/print.css" media="print" />   
-    <link rel="icon" type="image/icon" href="http://montana.edu/favicon.ico">
-   	<script type="text/javascript" language="JavaScript1.2" src="http://www.montana.edu/msucommon/scriptsv2/tabs200.js"></script>
-
-<!-- END BRANDED CONTENT DO NOT EDIT -->     
-<!--                                 -->   
-
-<title><? pageTitle() ?></title>
-
-<!-- Add custom styles here -->
-    <link rel="stylesheet" type="text/css" href="<? bloginfo('stylesheet_url')?>" media="screen">
-<!-- BEGIN BRANDED CONTENT DO NOT EDIT -->
-<? wp_head() ?>
+  <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/tabs200.css" media="screen" />
+  <!--[if IE 6]>
+    <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/ie6screen.css"  media="screen" />
+  <![endif]-->
+  <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/mobile.css" media="handheld, only screen and (max-device-width: 480px)" />
+  <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/print.css" media="print" />   
+  <link rel="icon" type="image/icon" href="http://montana.edu/favicon.ico" />
+  <script type="text/javascript" language="JavaScript1.2" src="http://www.montana.edu/msucommon/scriptsv2/tabs200.js"></script>
+  <title><? pageTitle() ?></title>
+  <link rel="stylesheet" type="text/css" href="<? bloginfo('stylesheet_url')?>" media="screen" />
+  <? wp_head() ?>
 </head>
 
 <body><!-- LOADS NEWS CONTAINER -->
@@ -67,55 +62,43 @@ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
           <div class="links">
             <h2><? bloginfo('title') ?></h2>
             <? wp_page_menu(array('show_home' => true)) ?>                        
-<!--End Links--></div>
-<!--                                   -->   
-<!-- BEGIN BRANDED CONTENT DO NOT EDIT -->
-<!--                    -->
-<!--Begin Contact Us box-->
-<!--                    -->
-<div id="contact">
-<!-- END BRANDED CONTENT DO NOT EDIT -->     
-<!--                    --> 
-<!--                                -->
-<!--Begin Insert Contact Information-->
-<!--                                -->
-<h2><?php _e(htmlspecialchars(get_option('college-title')),'msu-template') ?></h2>
-Montana State University<br />
-<? if(htmlspecialchars(get_option('address'))!=""){ ?>
-<?php _e(htmlspecialchars(get_option('address')),'msu-template') ?><br />
-<? } ?>
-Bozeman, Montana 59715<br />
-<br />
-Tel: <?php _e(htmlspecialchars(get_option('telephone')),'msu-template') ?><br />
-Fax: <?php _e(htmlspecialchars(get_option('fax')),'msu-template') ?><br />
-E-mail: <a href="mailto:<?php _e(htmlspecialchars(get_option('email')),'msu-template') ?>"><?php _e(htmlspecialchars(get_option('email')),'msu-template') ?></a><br />
-Location: <?php _e(htmlspecialchars(get_option('location')),'msu-template') ?><br />
-<? if(htmlspecialchars(get_option('dean-name'))!=""){ ?>
-<br />
-<h2>Dean</h2>
-<?php _e(htmlspecialchars(get_option('dean-name')),'msu-template') ?><br />
-<? } ?>
-<? if(htmlspecialchars(get_option('director-name'))!=""){ ?>
-<br />
-<h2>Director</h2>
-<?php _e(htmlspecialchars(get_option('director-name')),'msu-template') ?><br />
-Phone: <?php _e(htmlspecialchars(get_option('director-phone')),'msu-template') ?><br />
-E-mail: <a href="mailto:<?php _e(htmlspecialchars(get_option('director-email')),'msu-template') ?>"><?php _e(htmlspecialchars(get_option('director-email')),'msu-template') ?></a><br />
-<? } ?>
-<!--                                   -->
-<!-- BEGIN BRANDED CONTENT DO NOT EDIT -->
-</div>
-</div>
+          </div>
+          <div id="contact">
+            <h2><?php _e(htmlspecialchars(get_option('college-title')),'msu-template') ?></h2>
+            Montana State University<br />
+            <? if(htmlspecialchars(get_option('address'))!=""){ ?>
+            <?php _e(htmlspecialchars(get_option('address')),'msu-template') ?><br />
+            <? } ?>
+            Bozeman, Montana 59715<br />
+            <br />
+            Tel: <?php _e(htmlspecialchars(get_option('telephone')),'msu-template') ?><br />
+            Fax: <?php _e(htmlspecialchars(get_option('fax')),'msu-template') ?><br />
+            E-mail: <a href="mailto:<?php _e(htmlspecialchars(get_option('email')),'msu-template') ?>"><?php _e(htmlspecialchars(get_option('email')),'msu-template') ?></a><br />
+            Location: <?php _e(htmlspecialchars(get_option('location')),'msu-template') ?><br />
+            <? if(htmlspecialchars(get_option('dean-name'))!=""){ ?>
+            <br />
+            <h2>Dean</h2>
+            <?php _e(htmlspecialchars(get_option('dean-name')),'msu-template') ?><br />
+            <? } ?>
+            <? if(htmlspecialchars(get_option('director-name'))!=""){ ?>
+            <br />
+            <h2>Director</h2>
+            <?php _e(htmlspecialchars(get_option('director-name')),'msu-template') ?><br />
+            Phone: <?php _e(htmlspecialchars(get_option('director-phone')),'msu-template') ?><br />
+            E-mail: <a href="mailto:<?php _e(htmlspecialchars(get_option('director-email')),'msu-template') ?>"><?php _e(htmlspecialchars(get_option('director-email')),'msu-template') ?></a><br />
+            <? } ?>
+          </div>
+        </div>
 
-<div id="rightpane">        
-<? if(!is_search()){
-    get_sidebar();
-}
-?>
-<? if(htmlspecialchars(get_option('page-image'))!='') { ?>
-<div id="welcomebanner">
-  <img src="<? echo htmlspecialchars(get_option('page-image')) ?>" alt="<? bloginfo('name') ?>" title="<? bloginfo('name') ?>"  />
-</div>
-<? } ?>
-<!-- BEGIN Body Content -->
-<div id="content">
+        <div id="rightpane">        
+          <? if(!is_search()){
+              get_sidebar();
+          }
+          ?>
+          <? if(htmlspecialchars(get_option('page-image'))!='') { ?>
+          <div id="welcomebanner">
+            <img src="<? echo htmlspecialchars(get_option('page-image')) ?>" alt="<? bloginfo('name') ?>" title="<? bloginfo('name') ?>"  />
+          </div>
+          <? } ?>
+          <!-- BEGIN Body Content -->
+          <div id="content">

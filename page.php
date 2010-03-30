@@ -1,5 +1,5 @@
 <? get_header() ?>
-<?php if (have_posts()) : ?>
+<?php if (have_posts()){?>
 
     <div class="post" id="post-<?php the_ID(); ?>">
       <h1><? the_title() ?></h1>
@@ -9,15 +9,16 @@
       </div>
     </div>
 
+    <? if(comments_open()){
+        comments_template();
+    } ?>
 
-  <?php else : ?>
+<? }else{ ?>
 
     <h2 class="center">Not Found</h2>
     <p class="center">Sorry, but you are looking for something that isn't here.</p>
     <?php include (TEMPLATEPATH . "/searchform.php"); ?>
 
-  <?php endif; ?>
-  <? if(comments_open()){
-      comments_template();
-  } ?>
+<? } ?>
+
 <? get_footer() ?>
