@@ -38,6 +38,9 @@ div.entry {
 .post .more-link {
 	font-weight: bold;
 }
+.post p.postmetadata {
+  font-weight: bold;
+}
 small {
 	color:#999999; 
 }
