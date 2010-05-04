@@ -32,7 +32,11 @@ function msu_template_admin() {
     'sci.png' => 'College of Letters and Science',
     'nursing.png' => 'College of Nursing',
     'university.png' => 'University College'
-    )
+    );
+  $sidebar = array(
+    '200',
+    '250'
+    );
 	?>
 	<div class="wrap">
 	<h2>MSU Template Settings</h2>
@@ -44,6 +48,18 @@ function msu_template_admin() {
 	
   <tr valign="top">
 		<th scope="row" colspan=2><h3><?php _e('Template Options', 'msu-template') ?></h3></th>
+	</tr>
+	
+  <tr valign="top">
+		<th scope="row"><?php _e('Sidebar:', 'msu-template') ?></th>
+		<td>
+			<select name='sidebar'>
+        <option value='' <? echo (get_option('sidebar')=="") ? "selected" : "" ?>>None</option>
+        <? foreach($sidebar as $value) { ?>
+          <option value='<? echo $value ?>' <? echo ($value==get_option('sidebar')) ? "selected" : "" ?>><? echo $value ?></option> 
+        <? } ?> 
+      </select>
+		</td>
 	</tr>
 	
 	<tr valign="top">
@@ -172,7 +188,7 @@ function msu_template_admin() {
   </table>
 	
 	<input type="hidden" name="action" value="update" />
-	<input type="hidden" name="page_options" value="college-title,address,telephone,fax,email,location,dean-name,director-name,director-phone,director-email,top-image,page-image,information-text,page-tab-title,blog-tab-title" />
+	<input type="hidden" name="page_options" value="college-title,address,telephone,fax,email,location,dean-name,director-name,director-phone,director-email,top-image,page-image,information-text,page-tab-title,blog-tab-title,sidebar" />
 	
 	<p class="submit">
 	<input type="submit" name="Submit" value="<?php _e('Save Changes', 'msu-template') ?>" />

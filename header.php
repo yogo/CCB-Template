@@ -1,19 +1,26 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html lang="en-US" xmlns="http://www.w3.org/1999/xhtml">
-<!--Web Template3_200v1.0-->
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
 	<meta name="description" content="" />
 	<meta name="keywords" content="" />
 	<link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/screen.css"  media="screen" />
-  <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/tabs200.css" media="screen" />
   <!--[if IE 6]>
     <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/ie6screen.css"  media="screen" />
   <![endif]-->
   <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/mobile.css" media="handheld, only screen and (max-device-width: 480px)" />
   <link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/print.css" media="print" />   
   <link rel="icon" type="image/icon" href="http://montana.edu/favicon.ico" />
-  <script type="text/javascript" language="JavaScript1.2" src="http://www.montana.edu/msucommon/scriptsv2/tabs200.js"></script>
+  <? switch(get_option('sidebar')){
+      case "200":
+        echo '<script type="text/javascript" language="JavaScript1.2" src="http://www.montana.edu/msucommon/scriptsv2/tabs200.js"></script>';
+        echo '<link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/tabs200.css" media="screen" />';
+        break;
+      case "250":
+        echo '<script type="text/javascript" language="JavaScript1.2" src="http://www.montana.edu/msucommon/scriptsv2/tabs250.js"></script>';
+        echo '<link rel="stylesheet" type="text/css" href="http://www.montana.edu/msucommon/stylesv2/tabs250.css" media="screen" />';
+        break;
+  } ?>
   <title><? pageTitle() ?></title>
   <link rel="stylesheet" type="text/css" href="<? bloginfo('stylesheet_url')?>" media="screen" />
   <? wp_head() ?>
@@ -91,10 +98,12 @@ ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www')
         </div>
 
         <div id="rightpane">        
+        <? if(get_option('sidebar')){ ?>
           <? if(!is_search()){
               get_sidebar();
           }
           ?>
+          <? } ?>
           <? if(htmlspecialchars(get_option('page-image'))!='') { ?>
           <div id="welcomebanner">
             <img src="<? echo htmlspecialchars(get_option('page-image')) ?>" alt="<? bloginfo('name') ?>" title="<? bloginfo('name') ?>"  />
